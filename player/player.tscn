@@ -96,3 +96,6 @@ shape = SubResource("RectangleShape2D_eqaie")
 libraries = {
 "": SubResource("AnimationLibrary_an3mk")
 }
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -8)

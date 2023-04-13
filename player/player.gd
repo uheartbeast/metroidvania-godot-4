@@ -36,8 +36,12 @@ func apply_friction(delta):
 	velocity.x = move_toward(velocity.x, 0, friction * delta)
 
 func jump_check():
-	if Input.is_action_just_pressed("ui_up") and is_on_floor():
-		velocity.y = -jump_force
+	if is_on_floor():
+		if Input.is_action_just_pressed("ui_up"):
+			velocity.y = -jump_force
+	else:
+		if Input.is_action_just_released("ui_up") and velocity.y < -jump_force / 2:
+			velocity.y = -jump_force / 2
 
 func update_animations(input_axis):
 	if is_moving(input_axis):
