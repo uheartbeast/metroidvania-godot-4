@@ -7,6 +7,9 @@ extends CharacterBody2D
 @export var jump_force = 128
 @export var max_fall_velocity = 128
 
+@onready var animation_player = $AnimationPlayer
+@onready var sprite_2d = $Sprite2D
+
 func _physics_process(delta):
 	apply_gravity(delta)
 	var input_axis = Input.get_axis("ui_left", "ui_right")
@@ -15,6 +18,7 @@ func _physics_process(delta):
 	else:
 		apply_friction(delta)
 	jump_check()
+	update_animations(input_axis)
 	move_and_slide()
 
 func is_moving(input_axis):
@@ -34,3 +38,13 @@ func apply_friction(delta):
 func jump_check():
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = -jump_force
+
+func update_animations(input_axis):
+	if is_moving(input_axis):
+		animation_player.play("run")
+		sprite_2d.scale.x = sign(input_axis)
+	else:
+		animation_player.play("idle")
+	
+	if not is_on_floor():
+		animation_player.play("jump")
