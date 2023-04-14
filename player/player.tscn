@@ -80,6 +80,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+floor_constant_speed = true
 floor_snap_length = 2.0
 script = ExtResource("1_3wd0q")
 
