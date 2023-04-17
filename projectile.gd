@@ -1,3 +1,4 @@
+class_name Projectile
 extends Node2D
 
 @export var speed = 250
