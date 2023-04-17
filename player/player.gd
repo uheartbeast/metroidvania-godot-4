@@ -32,10 +32,7 @@ func _physics_process(delta):
 		coyote_jump_timer.start()
 
 func create_dust_effect():
-	var dust_effect = DustEffectScene.instantiate()
-	var main = get_tree().current_scene
-	main.add_child(dust_effect)
-	dust_effect.global_position = global_position
+	Utils.instantiate_scene_on_world(DustEffectScene, global_position)
 
 func is_moving(input_axis):
 	return input_axis != 0

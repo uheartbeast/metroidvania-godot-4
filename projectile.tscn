@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgpn2c8vskl6e"]
+
+[ext_resource type="Script" path="res://projectile.gd" id="1_psnbb"]
+
+[node name="Projectile" type="Node2D"]
+script = ExtResource("1_psnbb")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

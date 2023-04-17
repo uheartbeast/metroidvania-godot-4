@@ -1,10 +1,58 @@
-[gd_scene load_steps=2 format=3 uid="uid://il73pvfbbqhl"]
+[gd_scene load_steps=6 format=3 uid="uid://dqriuaqhtynvx"]
 
+[ext_resource type="PackedScene" uid="uid://dgpn2c8vskl6e" path="res://projectile.tscn" id="1_dna3s"]
 [ext_resource type="Texture2D" uid="uid://cyn4805pwtl4n" path="res://player/player_bullet.png" id="1_qew3n"]
 
-[node name="Bullet" type="Node2D"]
+[sub_resource type="Animation" id="Animation_m0s2j"]
+resource_name = "fire"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[sub_resource type="Animation" id="Animation_ja01y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bi0pw"]
+_data = {
+"RESET": SubResource("Animation_ja01y"),
+"fire": SubResource("Animation_m0s2j")
+}
+
+[node name="Bullet" instance=ExtResource("1_dna3s")]
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+position = Vector2(-2.38419e-07, 0)
+scale = Vector2(0.4, 0.3)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 texture = ExtResource("1_qew3n")
 hframes = 2
-frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+autoplay = "fire"
+libraries = {
+"": SubResource("AnimationLibrary_bi0pw")
+}
