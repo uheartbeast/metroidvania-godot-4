@@ -98,6 +98,9 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 10
+collision_layer = 4
+collision_mask = 3
 floor_constant_speed = true
 floor_snap_length = 2.0
 script = ExtResource("1_3wd0q")
@@ -136,3 +139,9 @@ one_shot = true
 [node name="FireRateTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="DropTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]
