@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mlobb6austas"]
+[gd_scene load_steps=8 format=3 uid="uid://mlobb6austas"]
 
 [ext_resource type="PackedScene" uid="uid://f3u2c5cdrxdo" path="res://player/player.tscn" id="1_2nkik"]
 [ext_resource type="Script" path="res://world.gd" id="1_nfknu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dvq4ahxfhvg7v" path="res://world/moving_platform.tscn" id="4_o0un3"]
 [ext_resource type="Curve2D" uid="uid://qbk2eiwlcudg" path="res://world/up_down_path.tres" id="5_gpp3j"]
 [ext_resource type="Curve2D" uid="uid://b0qn76r0gqkp" path="res://world/hex_path.tres" id="6_tc20s"]
+[ext_resource type="PackedScene" uid="uid://xi8r5aa3olse" path="res://enemies/walking_enemy.tscn" id="7_yewqp"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_nfknu")
@@ -32,6 +33,21 @@ metadata/_edit_group_ = true
 
 [node name="Path2D" parent="MovingPlatform3" index="2"]
 curve = ExtResource("6_tc20s")
+
+[node name="WalkingEnemy" parent="." instance=ExtResource("7_yewqp")]
+position = Vector2(64, 80)
+
+[node name="WalkingEnemy2" parent="." instance=ExtResource("7_yewqp")]
+position = Vector2(328, 48)
+
+[node name="WalkingEnemy3" parent="." instance=ExtResource("7_yewqp")]
+position = Vector2(216, 64)
+
+[node name="WalkingEnemy4" parent="." instance=ExtResource("7_yewqp")]
+position = Vector2(-24, 80)
+
+[node name="WalkingEnemy5" parent="." instance=ExtResource("7_yewqp")]
+position = Vector2(8, 32)
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform3"]
