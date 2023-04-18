@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://f3u2c5cdrxdo"]
+[gd_scene load_steps=12 format=3 uid="uid://f3u2c5cdrxdo"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3wd0q"]
 [ext_resource type="Texture2D" uid="uid://x7tsan3s5uh8" path="res://player/player.png" id="1_eom3l"]
 [ext_resource type="PackedScene" uid="uid://chgwnbgli3v8x" path="res://player/player_blaster.tscn" id="2_ge2q0"]
+[ext_resource type="PackedScene" uid="uid://coqbqsf6p12m5" path="res://collisions/hurtbox.tscn" id="4_3gt4i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqaie"]
 size = Vector2(8, 14)
@@ -97,6 +98,9 @@ _data = {
 "run": SubResource("Animation_c3icp")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clbbg"]
+size = Vector2(7, 14)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
 collision_layer = 4
@@ -144,4 +148,12 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="Hurtbox" parent="." instance=ExtResource("4_3gt4i")]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-0.5, -7)
+shape = SubResource("RectangleShape2D_clbbg")
+
 [connection signal="timeout" from="DropTimer" to="." method="_on_drop_timer_timeout"]
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
