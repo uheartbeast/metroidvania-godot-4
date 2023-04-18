@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://f3u2c5cdrxdo"]
+[gd_scene load_steps=13 format=3 uid="uid://f3u2c5cdrxdo"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_3wd0q"]
 [ext_resource type="Texture2D" uid="uid://x7tsan3s5uh8" path="res://player/player.png" id="1_eom3l"]
 [ext_resource type="PackedScene" uid="uid://chgwnbgli3v8x" path="res://player/player_blaster.tscn" id="2_ge2q0"]
+[ext_resource type="PackedScene" uid="uid://dhl22wodoldlx" path="res://world/camera_2d.tscn" id="4_3cjor"]
 [ext_resource type="PackedScene" uid="uid://coqbqsf6p12m5" path="res://collisions/hurtbox.tscn" id="4_3gt4i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqaie"]
@@ -133,8 +134,7 @@ libraries = {
 "": SubResource("AnimationLibrary_an3mk")
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -8)
+[node name="Camera2D" parent="." instance=ExtResource("4_3cjor")]
 
 [node name="CoyoteJumpTimer" type="Timer" parent="."]
 wait_time = 0.2
