@@ -17,6 +17,10 @@ const JumpEffectScene = preload("res://effects/jump_effect.tscn")
 @onready var fire_rate_timer = $FireRateTimer
 @onready var drop_timer = $DropTimer
 @onready var camera_2d = $Camera2D
+@onready var hurtbox : = $Hurtbox
+
+func _ready():
+	PlayerStats.no_health.connect(die)
 
 func _physics_process(delta):
 	apply_gravity(delta)
@@ -77,10 +81,16 @@ func update_animations(input_axis):
 	if not is_on_floor():
 		animation_player.play("jump")
 
+func die():
+	camera_2d.reparent(get_tree().current_scene)
+	queue_free()
+
 func _on_drop_timer_timeout():
 	set_collision_mask_value(2, true)
 
 func _on_hurtbox_hurt(hitbox, damage):
-	camera_2d.reparent(get_tree().current_scene)
 	Events.add_screenshake.emit(3, 0.25)
-	queue_free()
+	PlayerStats.health -= 1
+	hurtbox.is_invincible = true
+	await get_tree().create_timer(1.0).timeout
+	hurtbox.is_invincible = false

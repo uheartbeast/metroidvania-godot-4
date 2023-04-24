@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Utils="*res://Utils.gd"
 Events="*res://Events.gd"
+PlayerStats="*res://player/player_stats.tscn"
 
 [display]
 
