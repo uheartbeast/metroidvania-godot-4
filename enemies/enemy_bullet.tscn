@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://7y8icglva3d2"]
+
+[ext_resource type="PackedScene" uid="uid://dgpn2c8vskl6e" path="res://projectile.tscn" id="1_u0855"]
+[ext_resource type="Texture2D" uid="uid://byg1b5nxrieju" path="res://enemies/enemy_bullet.png" id="2_cbqhh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymr35"]
+radius = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlqv2"]
+atlas = ExtResource("2_cbqhh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcfs6"]
+atlas = ExtResource("2_cbqhh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_31udf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlqv2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcfs6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="EnemyBullet" instance=ExtResource("1_u0855")]
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+position = Vector2(2.38419e-07, 1.78814e-07)
+scale = Vector2(0.5, 0.5)
+
+[node name="Hitbox" parent="." index="1"]
+collision_mask = 19
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource("CircleShape2D_ymr35")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_31udf")
+autoplay = "default"
+frame_progress = 0.306503
