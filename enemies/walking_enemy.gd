@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const EnemyDeathEffectScene = preload("res://effects/enemy_death_effect.tscn")
+
 @export var speed = 30.0
 @export var turns_at_ledges = true
 
@@ -9,6 +11,7 @@ var direction = 1.0
 @onready var sprite_2d = $Sprite2D
 @onready var floor_cast = $FloorCast
 @onready var stats = $Stats
+@onready var death_effect_location = $DeathEffectLocation
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -35,4 +38,5 @@ func _on_hurtbox_hurt(hitbox, damage):
 	stats.health -= damage
 
 func _on_stats_no_health():
+	Utils.instantiate_scene_on_world(EnemyDeathEffectScene, death_effect_location.global_position)
 	queue_free()

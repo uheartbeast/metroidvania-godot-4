@@ -51,5 +51,8 @@ shape = SubResource("RectangleShape2D_vmdp0")
 
 [node name="Stats" parent="." instance=ExtResource("5_q5eje")]
 
+[node name="DeathEffectLocation" type="Marker2D" parent="."]
+position = Vector2(0, -7)
+
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
