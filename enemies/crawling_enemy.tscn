@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://c73vvsnow1tx"]
+
+[ext_resource type="Texture2D" uid="uid://cyiixebax2p66" path="res://enemies/crawling_enemy.png" id="1_csqmv"]
+[ext_resource type="Script" path="res://enemies/crawling_enemy.gd" id="1_s2668"]
+[ext_resource type="PackedScene" uid="uid://coqbqsf6p12m5" path="res://collisions/hurtbox.tscn" id="2_v1tkv"]
+[ext_resource type="PackedScene" uid="uid://cko0f8mmxn31b" path="res://collisions/hitbox.tscn" id="3_g6oju"]
+[ext_resource type="Script" path="res://stats.gd" id="5_evqv3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xqi5"]
+atlas = ExtResource("1_csqmv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usaoj"]
+atlas = ExtResource("1_csqmv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8srh"]
+atlas = ExtResource("1_csqmv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kfv1"]
+atlas = ExtResource("1_csqmv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f5hau"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xqi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usaoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8srh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kfv1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hspbh"]
+size = Vector2(16, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu3h4"]
+size = Vector2(10, 5)
+
+[node name="CrawlingEnemy" type="Node2D"]
+script = ExtResource("1_s2668")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_f5hau")
+autoplay = "default"
+frame_progress = 0.220638
+
+[node name="Hurtbox" parent="." instance=ExtResource("2_v1tkv")]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_hspbh")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_g6oju")]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_pu3h4")
+
+[node name="FloorCast" type="RayCast2D" parent="."]
+position = Vector2(0, -3)
+target_position = Vector2(0, 8)
+collision_mask = 3
+
+[node name="WallCast" type="RayCast2D" parent="."]
+position = Vector2(0, -4)
+target_position = Vector2(4, 0)
+collision_mask = 3
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("5_evqv3")
+max_health = 2
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+[connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]

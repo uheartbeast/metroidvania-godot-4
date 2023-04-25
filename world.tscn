@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://mlobb6austas"]
+[gd_scene load_steps=11 format=3 uid="uid://mlobb6austas"]
 
 [ext_resource type="PackedScene" uid="uid://f3u2c5cdrxdo" path="res://player/player.tscn" id="1_2nkik"]
 [ext_resource type="Script" path="res://world.gd" id="1_nfknu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://xi8r5aa3olse" path="res://enemies/walking_enemy.tscn" id="7_yewqp"]
 [ext_resource type="PackedScene" uid="uid://duwanatqpdoq5" path="res://ui/health_meter.tscn" id="8_2qica"]
 [ext_resource type="PackedScene" uid="uid://bnojkit3jl22a" path="res://enemies/plant_enemy.tscn" id="9_5rd51"]
+[ext_resource type="PackedScene" uid="uid://c73vvsnow1tx" path="res://enemies/crawling_enemy.tscn" id="10_mio4r"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_nfknu")
@@ -36,9 +37,6 @@ metadata/_edit_group_ = true
 [node name="Path2D" parent="MovingPlatform3" index="2"]
 curve = ExtResource("6_tc20s")
 
-[node name="WalkingEnemy" parent="." instance=ExtResource("7_yewqp")]
-position = Vector2(64, 80)
-
 [node name="WalkingEnemy2" parent="." instance=ExtResource("7_yewqp")]
 position = Vector2(328, 48)
 
@@ -47,9 +45,6 @@ position = Vector2(216, 64)
 
 [node name="WalkingEnemy4" parent="." instance=ExtResource("7_yewqp")]
 position = Vector2(-24, 80)
-
-[node name="WalkingEnemy5" parent="." instance=ExtResource("7_yewqp")]
-position = Vector2(8, 32)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -73,6 +68,13 @@ rotation = -1.57079
 
 [node name="PlantEnemy4" parent="." instance=ExtResource("9_5rd51")]
 position = Vector2(400, 112)
+
+[node name="CrawlingEnemy" parent="." instance=ExtResource("10_mio4r")]
+position = Vector2(64, 80)
+crawling_direction = -1
+
+[node name="CrawlingEnemy2" parent="." instance=ExtResource("10_mio4r")]
+position = Vector2(16, 32)
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform3"]
