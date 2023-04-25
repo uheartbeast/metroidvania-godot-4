@@ -30,12 +30,18 @@ var state = move_state
 func _ready():
 	PlayerStats.no_health.connect(die)
 
+func _enter_tree():
+	MainInstances.player = self
+
 func _physics_process(delta):
 	state.call(delta)
 	
 	if Input.is_action_pressed("fire") and fire_rate_timer.time_left == 0:
 		fire_rate_timer.start()
 		player_blaster.fire_bullet()
+
+func _exit_tree():
+	MainInstances.player = null
 
 func move_state(delta):
 	apply_gravity(delta)

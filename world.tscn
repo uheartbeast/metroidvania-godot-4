@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://mlobb6austas"]
+[gd_scene load_steps=12 format=3 uid="uid://mlobb6austas"]
 
 [ext_resource type="PackedScene" uid="uid://f3u2c5cdrxdo" path="res://player/player.tscn" id="1_2nkik"]
 [ext_resource type="Script" path="res://world.gd" id="1_nfknu"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://duwanatqpdoq5" path="res://ui/health_meter.tscn" id="8_2qica"]
 [ext_resource type="PackedScene" uid="uid://bnojkit3jl22a" path="res://enemies/plant_enemy.tscn" id="9_5rd51"]
 [ext_resource type="PackedScene" uid="uid://c73vvsnow1tx" path="res://enemies/crawling_enemy.tscn" id="10_mio4r"]
+[ext_resource type="PackedScene" uid="uid://c7yj7h7haknmp" path="res://enemies/flying_enemy.tscn" id="11_wb6tv"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_nfknu")
@@ -75,6 +76,15 @@ crawling_direction = -1
 
 [node name="CrawlingEnemy2" parent="." instance=ExtResource("10_mio4r")]
 position = Vector2(16, 32)
+
+[node name="FlyingEnemy" parent="." instance=ExtResource("11_wb6tv")]
+position = Vector2(224, 8)
+
+[node name="FlyingEnemy2" parent="." instance=ExtResource("11_wb6tv")]
+position = Vector2(24, -32)
+
+[node name="FlyingEnemy3" parent="." instance=ExtResource("11_wb6tv")]
+position = Vector2(456, -72)
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform3"]
