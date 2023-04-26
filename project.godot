@@ -30,6 +30,11 @@ window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="res://ui/default_theme.tres"
+theme/custom_font="res://ui/pixel_font.ttf"
+
 [input]
 
 move_right={
