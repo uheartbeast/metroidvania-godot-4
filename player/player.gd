@@ -26,6 +26,7 @@ var state = move_state
 @onready var camera_2d = $Camera2D
 @onready var hurtbox : = $Hurtbox
 @onready var blinking_animation_player = $BlinkingAnimationPlayer
+@onready var center = $Center
 
 func _ready():
 	PlayerStats.no_health.connect(die)

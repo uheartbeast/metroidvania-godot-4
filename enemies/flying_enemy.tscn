@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7yj7h7haknmp"]
+[gd_scene load_steps=17 format=3 uid="uid://c7yj7h7haknmp"]
 
 [ext_resource type="Texture2D" uid="uid://bg5u740wkoqso" path="res://enemies/flying_enemy.png" id="1_epnni"]
 [ext_resource type="Script" path="res://enemies/flying_enemy.gd" id="1_prdkn"]
 [ext_resource type="PackedScene" uid="uid://coqbqsf6p12m5" path="res://collisions/hurtbox.tscn" id="3_mkdo0"]
 [ext_resource type="PackedScene" uid="uid://cko0f8mmxn31b" path="res://collisions/hitbox.tscn" id="4_iha2f"]
 [ext_resource type="PackedScene" uid="uid://bp0mpdjs2vwx7" path="res://stats.tscn" id="5_g4ps7"]
+[ext_resource type="PackedScene" uid="uid://xl1gi6gyk3hk" path="res://enemies/waypoint_pathfinding.tscn" id="6_l8kj4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l1k7b"]
 atlas = ExtResource("1_epnni")
@@ -66,7 +67,8 @@ radius = 7.0
 radius = 4.0
 
 [node name="FlyingEnemy" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 8
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_prdkn")
 
@@ -93,5 +95,10 @@ shape = SubResource("CircleShape2D_uvbfy")
 
 [node name="Stats" parent="." instance=ExtResource("5_g4ps7")]
 
+[node name="WaypointPathfinding" parent="." instance=ExtResource("6_l8kj4")]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
