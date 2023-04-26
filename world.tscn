@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://mlobb6austas"]
+[gd_scene load_steps=13 format=3 uid="uid://mlobb6austas"]
 
 [ext_resource type="PackedScene" uid="uid://f3u2c5cdrxdo" path="res://player/player.tscn" id="1_2nkik"]
 [ext_resource type="Script" path="res://world.gd" id="1_nfknu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Curve2D" uid="uid://b0qn76r0gqkp" path="res://world/hex_path.tres" id="6_tc20s"]
 [ext_resource type="PackedScene" uid="uid://xi8r5aa3olse" path="res://enemies/walking_enemy.tscn" id="7_yewqp"]
 [ext_resource type="PackedScene" uid="uid://duwanatqpdoq5" path="res://ui/health_meter.tscn" id="8_2qica"]
+[ext_resource type="PackedScene" uid="uid://cm6kgub3nktqd" path="res://menus/pause_menu.tscn" id="9_1ebi7"]
 [ext_resource type="PackedScene" uid="uid://bnojkit3jl22a" path="res://enemies/plant_enemy.tscn" id="9_5rd51"]
 [ext_resource type="PackedScene" uid="uid://c73vvsnow1tx" path="res://enemies/crawling_enemy.tscn" id="10_mio4r"]
 [ext_resource type="PackedScene" uid="uid://c7yj7h7haknmp" path="res://enemies/flying_enemy.tscn" id="11_wb6tv"]
@@ -54,6 +55,9 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 3.0
 offset_bottom = 3.0
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("9_1ebi7")]
+visible = false
 
 [node name="PlantEnemy" parent="." instance=ExtResource("9_5rd51")]
 position = Vector2(16, 48)
