@@ -24,7 +24,7 @@ func move_toward_position(target_position, delta):
 	move_and_slide()
 
 func _on_hurtbox_hurt(hitbox, damage):
-	stats.health -= 1
+	stats.health -= damage
 
 func _on_stats_no_health():
 	queue_free()

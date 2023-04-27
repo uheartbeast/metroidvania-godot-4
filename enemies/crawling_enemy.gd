@@ -28,10 +28,8 @@ func _physics_process(delta):
 		else:
 			rotation_degrees += crawling_direction
 
-
 func _on_hurtbox_hurt(hitbox, damage):
 	stats.health -= damage
-
 
 func _on_stats_no_health():
 	queue_free()

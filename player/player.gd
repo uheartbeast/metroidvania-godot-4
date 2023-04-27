@@ -40,6 +40,13 @@ func _physics_process(delta):
 	if Input.is_action_pressed("fire") and fire_rate_timer.time_left == 0:
 		fire_rate_timer.start()
 		player_blaster.fire_bullet()
+	
+	if (Input.is_action_pressed("fire_missile")
+	and fire_rate_timer.time_left == 0
+	and PlayerStats.missiles > 0):
+		fire_rate_timer.start()
+		player_blaster.fire_missile()
+		PlayerStats.missiles -= 1
 
 func _exit_tree():
 	MainInstances.player = null
