@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://mlobb6austas"]
+[gd_scene load_steps=16 format=3 uid="uid://mlobb6austas"]
 
 [ext_resource type="PackedScene" uid="uid://f3u2c5cdrxdo" path="res://player/player.tscn" id="1_2nkik"]
 [ext_resource type="Script" path="res://world.gd" id="1_nfknu"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c73vvsnow1tx" path="res://enemies/crawling_enemy.tscn" id="10_mio4r"]
 [ext_resource type="PackedScene" uid="uid://c7yj7h7haknmp" path="res://enemies/flying_enemy.tscn" id="11_wb6tv"]
 [ext_resource type="PackedScene" uid="uid://cwvnm6qik0lqg" path="res://ui/brick.tscn" id="14_xrbj6"]
+[ext_resource type="PackedScene" uid="uid://di7gu0pkfgxty" path="res://player/missile_powerup.tscn" id="15_re284"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_nfknu")
@@ -64,10 +65,6 @@ offset_top = 17.0
 offset_right = 16.0
 offset_bottom = 27.0
 
-[node name="PlantEnemy2" parent="." instance=ExtResource("9_5rd51")]
-position = Vector2(208, 112)
-rotation = -1.57079
-
 [node name="PlantEnemy3" parent="." instance=ExtResource("9_5rd51")]
 position = Vector2(448, 56)
 rotation = -1.57079
@@ -102,6 +99,12 @@ position = Vector2(0, 80)
 
 [node name="Brick4" parent="." instance=ExtResource("14_xrbj6")]
 position = Vector2(0, 96)
+
+[node name="MissilePowerup" parent="." instance=ExtResource("15_re284")]
+position = Vector2(192, 112)
+
+[node name="MissilePowerup2" parent="." instance=ExtResource("15_re284")]
+position = Vector2(296, 32)
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform3"]
