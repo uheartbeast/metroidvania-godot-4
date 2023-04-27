@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://mlobb6austas"]
+[gd_scene load_steps=15 format=3 uid="uid://mlobb6austas"]
 
 [ext_resource type="PackedScene" uid="uid://f3u2c5cdrxdo" path="res://player/player.tscn" id="1_2nkik"]
 [ext_resource type="Script" path="res://world.gd" id="1_nfknu"]
@@ -10,8 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://duwanatqpdoq5" path="res://ui/health_meter.tscn" id="8_2qica"]
 [ext_resource type="PackedScene" uid="uid://cm6kgub3nktqd" path="res://menus/pause_menu.tscn" id="9_1ebi7"]
 [ext_resource type="PackedScene" uid="uid://bnojkit3jl22a" path="res://enemies/plant_enemy.tscn" id="9_5rd51"]
+[ext_resource type="PackedScene" uid="uid://ds8rmiqoroe68" path="res://ui/missile_ui.tscn" id="10_3p06u"]
 [ext_resource type="PackedScene" uid="uid://c73vvsnow1tx" path="res://enemies/crawling_enemy.tscn" id="10_mio4r"]
 [ext_resource type="PackedScene" uid="uid://c7yj7h7haknmp" path="res://enemies/flying_enemy.tscn" id="11_wb6tv"]
+[ext_resource type="PackedScene" uid="uid://cwvnm6qik0lqg" path="res://ui/brick.tscn" id="14_xrbj6"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_nfknu")
@@ -45,9 +47,6 @@ position = Vector2(328, 48)
 [node name="WalkingEnemy3" parent="." instance=ExtResource("7_yewqp")]
 position = Vector2(216, 64)
 
-[node name="WalkingEnemy4" parent="." instance=ExtResource("7_yewqp")]
-position = Vector2(-24, 80)
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HealthMeter" parent="UI" instance=ExtResource("8_2qica")]
@@ -59,9 +58,11 @@ offset_bottom = 3.0
 [node name="PauseMenu" parent="UI" instance=ExtResource("9_1ebi7")]
 visible = false
 
-[node name="PlantEnemy" parent="." instance=ExtResource("9_5rd51")]
-position = Vector2(16, 48)
-rotation = -3.14159
+[node name="MissileUI" parent="UI" instance=ExtResource("10_3p06u")]
+offset_left = 3.0
+offset_top = 17.0
+offset_right = 16.0
+offset_bottom = 27.0
 
 [node name="PlantEnemy2" parent="." instance=ExtResource("9_5rd51")]
 position = Vector2(208, 112)
@@ -89,6 +90,18 @@ position = Vector2(24, -32)
 
 [node name="FlyingEnemy3" parent="." instance=ExtResource("11_wb6tv")]
 position = Vector2(456, -72)
+
+[node name="Brick" parent="." instance=ExtResource("14_xrbj6")]
+position = Vector2(0, 48)
+
+[node name="Brick2" parent="." instance=ExtResource("14_xrbj6")]
+position = Vector2(0, 64)
+
+[node name="Brick3" parent="." instance=ExtResource("14_xrbj6")]
+position = Vector2(0, 80)
+
+[node name="Brick4" parent="." instance=ExtResource("14_xrbj6")]
+position = Vector2(0, 96)
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform3"]
