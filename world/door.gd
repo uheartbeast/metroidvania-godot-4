@@ -21,5 +21,4 @@ func _physics_process(delta):
 		var player_direction = sign(player.velocity.x)
 		var direction = get_direction()
 		if player_direction == direction:
-			print("door entered")
 			Events.door_entered.emit(self)

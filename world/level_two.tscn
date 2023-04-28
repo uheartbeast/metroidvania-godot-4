@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dit7ona26ebdf"]
+[gd_scene load_steps=8 format=3 uid="uid://dit7ona26ebdf"]
 
 [ext_resource type="PackedScene" uid="uid://bgcerob54mod3" path="res://world/world_tile_map.tscn" id="1_kyk8x"]
 [ext_resource type="Resource" uid="uid://csvgnvyucicod" path="res://world/one_two.tres" id="2_em2l5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bb2r2qecqbrbn" path="res://world/door.tscn" id="3_nu5vv"]
 [ext_resource type="Resource" uid="uid://c7bobcjyc0t2h" path="res://world/two_three.tres" id="5_oqx02"]
 [ext_resource type="PackedScene" uid="uid://bad7fd4y6y5p1" path="res://world/camera_limits.tscn" id="6_lcf10"]
+[ext_resource type="PackedScene" uid="uid://di7gu0pkfgxty" path="res://player/missile_powerup.tscn" id="7_xmv73"]
 
 [node name="LevelTwo" type="Node2D"]
 
@@ -28,3 +29,6 @@ connection = ExtResource("5_oqx02")
 [node name="CameraLimits" parent="." instance=ExtResource("6_lcf10")]
 offset_right = 320.0
 offset_bottom = 180.0
+
+[node name="MissilePowerup" parent="." instance=ExtResource("7_xmv73")]
+position = Vector2(24, 64)
