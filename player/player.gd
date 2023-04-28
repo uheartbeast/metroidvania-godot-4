@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 const DustEffectScene = preload("res://effects/dust_effect.tscn")
