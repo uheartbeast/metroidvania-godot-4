@@ -1,6 +1,8 @@
 extends Node2D
 
 const StingerScene = preload("res://enemies/stinger.tscn")
+const MissilePowerupScene = preload("res://player/missile_powerup.tscn")
+const EnemyDeathEffectSceen = preload("res://effects/enemy_death_effect.tscn")
 
 @export var acceleration = 200
 @export var max_speed = 800
@@ -27,6 +29,10 @@ func get_state_init():
 	var was = state_init
 	state_init = false
 	return was
+
+func _ready():
+	var freed = WorldStash.retrieve("first_boss", "freed")
+	if freed: queue_free()
 
 func _process(delta):
 	state.call(delta)
@@ -80,3 +86,7 @@ func _on_hurtbox_hurt(hitbox, damage):
 
 func _on_stats_no_health():
 	queue_free()
+	WorldStash.stash("first_boss", "freed", true)
+	Utils.instantiate_scene_on_world(MissilePowerupScene, global_position)
+	for i in 6:
+		Utils.instantiate_scene_on_world(EnemyDeathEffectSceen, global_position+Vector2(randf_range(-16, 16), randf_range(-16, 16)))
