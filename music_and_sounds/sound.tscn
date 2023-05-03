@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=3 uid="uid://bbtjh0rsst6bx"]
+
+[ext_resource type="Script" path="res://music_and_sounds/sound.gd" id="1_c3oma"]
+[ext_resource type="AudioStream" uid="uid://di8ask5r1emtg" path="res://music_and_sounds/bullet.wav" id="2_qjmp7"]
+[ext_resource type="AudioStream" uid="uid://chble6v2vgtc1" path="res://music_and_sounds/click.wav" id="3_gr8jf"]
+[ext_resource type="AudioStream" uid="uid://68vc31r77plg" path="res://music_and_sounds/enemy_die.wav" id="4_7faot"]
+[ext_resource type="AudioStream" uid="uid://dcosrlkjonbsw" path="res://music_and_sounds/explosion.wav" id="5_1641i"]
+[ext_resource type="AudioStream" uid="uid://j1ctq7i50ylp" path="res://music_and_sounds/hurt.wav" id="6_yl518"]
+[ext_resource type="AudioStream" uid="uid://bk8lrerc812b5" path="res://music_and_sounds/jump.wav" id="7_uvbmt"]
+[ext_resource type="AudioStream" uid="uid://d3vqong4fa4l4" path="res://music_and_sounds/pause.wav" id="8_38okd"]
+[ext_resource type="AudioStream" uid="uid://buu4bioyjl1cm" path="res://music_and_sounds/powerup.wav" id="9_cxpo6"]
+[ext_resource type="AudioStream" uid="uid://o8o4lbbfrj0q" path="res://music_and_sounds/step.wav" id="10_i41wo"]
+[ext_resource type="AudioStream" uid="uid://ct0to6lhwo3ae" path="res://music_and_sounds/unpause.wav" id="11_dejtr"]
+
+[node name="Sound" type="Node"]
+script = ExtResource("1_c3oma")
+bullet = ExtResource("2_qjmp7")
+click = ExtResource("3_gr8jf")
+enemy_die = ExtResource("4_7faot")
+explosion = ExtResource("5_1641i")
+hurt = ExtResource("6_yl518")
+jump = ExtResource("7_uvbmt")
+pause = ExtResource("8_38okd")
+powerup = ExtResource("9_cxpo6")
+step = ExtResource("10_i41wo")
+unpause = ExtResource("11_dejtr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer12" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer13" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer14" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer15" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"
+
+[node name="AudioStreamPlayer16" type="AudioStreamPlayer" parent="."]
+bus = &"Sounds"

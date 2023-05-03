@@ -11,6 +11,9 @@ func update_velocity():
 	velocity.x = speed
 	velocity = velocity.rotated(rotation)
 
+func _ready():
+	Sound.play(Sound.bullet, randf_range(0.6, 1.2))
+
 func _process(delta):
 	position += velocity * delta
 
