@@ -255,7 +255,7 @@ offset = Vector2(8, 8)
 flip_h = true
 
 [node name="Stats" parent="." instance=ExtResource("6_kbtdd")]
-max_health = 4
+max_health = 200
 
 [node name="Hurtbox" parent="." instance=ExtResource("7_miye3")]
 collision_layer = 32
@@ -292,4 +292,3 @@ position = Vector2(12, 0)
 
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
 [connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
-[connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
