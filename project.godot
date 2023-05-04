@@ -23,6 +23,7 @@ PlayerStats="*res://player/player_stats.tscn"
 MainInstances="*res://MainInstances.gd"
 WorldStash="*res://WorldStash.gd"
 Sound="*res://music_and_sounds/sound.tscn"
+Music="*res://music_and_sounds/music.tscn"
 
 [display]
 
