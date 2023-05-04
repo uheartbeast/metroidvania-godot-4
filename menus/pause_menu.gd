@@ -11,6 +11,7 @@ var paused = false :
 			Sound.play(Sound.unpause, 1.0, -10.0)
 
 func _process(delta):
+	if not MainInstances.player is Player: return
 	if Input.is_action_just_pressed("pause"):
 		paused = !paused
 

@@ -170,6 +170,7 @@ func update_animations(input_axis):
 func die():
 	camera_2d.reparent(get_tree().current_scene)
 	queue_free()
+	Events.player_died.emit()
 
 func _on_drop_timer_timeout():
 	set_collision_mask_value(2, true)

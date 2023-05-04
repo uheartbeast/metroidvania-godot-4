@@ -9,11 +9,11 @@ func _enter_tree():
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	Events.door_entered.connect(change_levels)
+	Events.player_died.connect(game_over)
 	Music.play(Music.main_theme)
 	if SaveManager.is_loading:
 		SaveManager.load_game()
 		SaveManager.is_loading = false
-
 func _exit_tree():
 	MainInstances.world = null
 
@@ -38,3 +38,7 @@ func change_levels(door : Door):
 		if found_door.connection != door.connection: continue
 		var yoffset = player.global_position.y - door.global_position.y
 		player.global_position = found_door.global_position + Vector2(0, yoffset)
+
+func game_over():
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://menus/game_over_menu.tscn")
