@@ -1,11 +1,32 @@
+class_name World
 extends Node2D
 
 @onready var level: = $LevelOne
+
+func _enter_tree():
+	MainInstances.world = self
 
 func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	Events.door_entered.connect(change_levels)
 	Music.play(Music.main_theme)
+
+func _process(delta):
+	if Input.is_action_just_pressed("save"):
+		SaveManager.save_game()
+	if Input.is_action_just_pressed("load"):
+		SaveManager.load_game()
+
+func _exit_tree():
+	MainInstances.world = null
+
+func load_level(file_path):
+	level.queue_free()
+	level.name = level.name+"OLD"
+	var LevelScene = load(file_path)
+	var new_level = LevelScene.instantiate()
+	add_child(new_level)
+	level = new_level
 
 func change_levels(door : Door):
 	var player = MainInstances.player as Player
