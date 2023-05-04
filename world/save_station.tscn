@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://cn1vuq74ap2ng"]
+
+[ext_resource type="Script" path="res://world/save_station.gd" id="1_0w7kx"]
+[ext_resource type="Texture2D" uid="uid://bt2jtqhkywewr" path="res://world/save_station.png" id="1_vl4cs"]
+[ext_resource type="Texture2D" uid="uid://cx3jkcwvmc23r" path="res://ui/white_square.png" id="3_nhsjc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foche"]
+size = Vector2(16, 20)
+
+[sub_resource type="Animation" id="Animation_wlytr"]
+resource_name = "save"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhiteSpaceSprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1.25), Vector2(1, 1.25), Vector2(0, 1.25)]
+}
+
+[sub_resource type="Animation" id="Animation_jayr0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WhiteSpaceSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e1qn4"]
+_data = {
+"RESET": SubResource("Animation_jayr0"),
+"save": SubResource("Animation_wlytr")
+}
+
+[node name="SaveStation" type="StaticBody2D"]
+collision_mask = 0
+script = ExtResource("1_0w7kx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("1_vl4cs")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-13, 0, -9, -4, 9, -4, 13, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_foche")
+
+[node name="WhiteSpaceSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(1e-05, 1.25)
+texture = ExtResource("3_nhsjc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e1qn4")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

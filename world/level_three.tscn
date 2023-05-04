@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ul6j101pgvkg"]
+[gd_scene load_steps=7 format=3 uid="uid://ul6j101pgvkg"]
 
 [ext_resource type="Script" path="res://world/level.gd" id="1_iknfp"]
 [ext_resource type="PackedScene" uid="uid://bgcerob54mod3" path="res://world/world_tile_map.tscn" id="1_n5n06"]
 [ext_resource type="PackedScene" uid="uid://bb2r2qecqbrbn" path="res://world/door.tscn" id="2_4d66w"]
 [ext_resource type="Resource" uid="uid://c7bobcjyc0t2h" path="res://world/two_three.tres" id="3_40xiv"]
 [ext_resource type="PackedScene" uid="uid://bad7fd4y6y5p1" path="res://world/camera_limits.tscn" id="4_n4s6l"]
+[ext_resource type="PackedScene" uid="uid://cn1vuq74ap2ng" path="res://world/save_station.tscn" id="6_1q5s7"]
 
 [node name="LevelThree" type="Node2D"]
 script = ExtResource("1_iknfp")
@@ -21,3 +22,6 @@ connection = ExtResource("3_40xiv")
 offset_top = -48.0
 offset_right = 360.0
 offset_bottom = 184.0
+
+[node name="SaveStation" parent="." instance=ExtResource("6_1q5s7")]
+position = Vector2(304, 48)

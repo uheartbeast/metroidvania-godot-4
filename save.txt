@@ -1,1 +1,1 @@
-{"first_boss":{"freed":true},"level":{"file_path":"res://world/level_two.tscn"},"player":{"x":115.235488891602,"y":159.81005859375}}
+{"level":{"file_path":"res://world/level_one.tscn"},"player":{"max_health":4,"max_missiles":0,"x":497.884521484375,"y":21.7424373626709}}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cmua6wr0faub"]
+[gd_scene load_steps=16 format=3 uid="uid://cmua6wr0faub"]
 
 [ext_resource type="PackedScene" uid="uid://bgcerob54mod3" path="res://world/world_tile_map.tscn" id="1_3ta7b"]
 [ext_resource type="Script" path="res://world/level.gd" id="1_ablu5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bb2r2qecqbrbn" path="res://world/door.tscn" id="11_0j5f2"]
 [ext_resource type="Resource" uid="uid://csvgnvyucicod" path="res://world/one_two.tres" id="12_nnnoe"]
 [ext_resource type="PackedScene" uid="uid://bad7fd4y6y5p1" path="res://world/camera_limits.tscn" id="13_8iwsy"]
+[ext_resource type="PackedScene" uid="uid://cn1vuq74ap2ng" path="res://world/save_station.tscn" id="15_sa8i4"]
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource("1_ablu5")
@@ -97,6 +98,9 @@ offset_left = -64.0
 offset_top = -112.0
 offset_right = 576.0
 offset_bottom = 160.0
+
+[node name="SaveStation" parent="." instance=ExtResource("15_sa8i4")]
+position = Vector2(488, 32)
 
 [editable path="MovingPlatform"]
 [editable path="MovingPlatform3"]

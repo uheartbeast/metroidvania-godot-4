@@ -4,12 +4,13 @@ const TEST_PATH = "res://save.txt"
 const PROD_PATH = "user://metroidvania_save.save"
 
 var save_path = TEST_PATH
+var is_loading = false
 
 func save_game():
 	WorldStash.stash("level", "file_path", MainInstances.level.scene_file_path)
 	WorldStash.stash("player", "x", MainInstances.player.global_position.x)
 	WorldStash.stash("player", "y", MainInstances.player.global_position.y)
-	
+	PlayerStats.stash_stats()
 	var save_file = FileAccess.open(save_path, FileAccess.WRITE)
 	var data_string = JSON.stringify(WorldStash.data)
 	save_file.store_string(data_string)
@@ -28,4 +29,6 @@ func load_game():
 	var player_x = WorldStash.retrieve("player", "x")
 	var player_y = WorldStash.retrieve("player", "y")
 	MainInstances.player.global_position = Vector2(player_x, player_y)
+	
+	PlayerStats.retrieve_stats()
 	save_file.close()

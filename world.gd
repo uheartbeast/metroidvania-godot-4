@@ -10,12 +10,9 @@ func _ready():
 	RenderingServer.set_default_clear_color(Color.BLACK)
 	Events.door_entered.connect(change_levels)
 	Music.play(Music.main_theme)
-
-func _process(delta):
-	if Input.is_action_just_pressed("save"):
-		SaveManager.save_game()
-	if Input.is_action_just_pressed("load"):
+	if SaveManager.is_loading:
 		SaveManager.load_game()
+		SaveManager.is_loading = false
 
 func _exit_tree():
 	MainInstances.world = null
