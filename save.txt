@@ -1,1 +1,1 @@
-{"LevelOne_MissilePowerup2_(296, 32)":{"freed":true},"LevelOne_MissilePowerup_(-40, 64)":{"freed":true},"level":{"file_path":"res://world/level_one.tscn"},"player":{"max_health":4,"max_missiles":6,"x":478.112670898438,"y":27.8107280731201}}
+{"level":{"file_path":"res://world/level_one.tscn"},"player":{"max_health":4,"max_missiles":0,"x":478.085693359375,"y":27.9934272766113}}

@@ -54,7 +54,7 @@ func fire_state(delta):
 	if firerate_timer.time_left == 0:
 		stinger_pivot.rotation_degrees += 17
 		firerate_timer.start()
-		var stinger = Utils.instantiate_scene_on_world(StingerScene, muzzle.global_position)
+		var stinger = Utils.instantiate_scene_on_level(StingerScene, muzzle.global_position)
 		stinger.rotation = stinger_pivot.rotation
 		stinger.update_velocity()
 
@@ -87,6 +87,6 @@ func _on_hurtbox_hurt(hitbox, damage):
 func _on_stats_no_health():
 	queue_free()
 	WorldStash.stash("first_boss", "freed", true)
-	Utils.instantiate_scene_on_world(MissilePowerupScene, global_position)
+	Utils.instantiate_scene_on_level(MissilePowerupScene, global_position)
 	for i in 6:
-		Utils.instantiate_scene_on_world(EnemyDeathEffectSceen, global_position+Vector2(randf_range(-16, 16), randf_range(-16, 16)))
+		Utils.instantiate_scene_on_level(EnemyDeathEffectSceen, global_position+Vector2(randf_range(-16, 16), randf_range(-16, 16)))

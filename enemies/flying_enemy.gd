@@ -28,7 +28,7 @@ func _on_hurtbox_hurt(hitbox, damage):
 
 func _on_stats_no_health():
 	queue_free()
-	Utils.instantiate_scene_on_world(EnemyDeathEffectScene, global_position)
+	Utils.instantiate_scene_on_level(EnemyDeathEffectScene, global_position)
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	set_physics_process(true)

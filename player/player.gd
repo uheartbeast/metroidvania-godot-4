@@ -104,7 +104,7 @@ func wall_jump_check(wall_axis):
 		state = move_state
 		jump(jump_force * 0.75, false)
 		var wall_jump_effect_position = global_position + Vector2(wall_axis * 3.5, -2)
-		var wall_jump_effect = Utils.instantiate_scene_on_world(WallJumpEffectScene, wall_jump_effect_position)
+		var wall_jump_effect = Utils.instantiate_scene_on_level(WallJumpEffectScene, wall_jump_effect_position)
 		wall_jump_effect.scale.x = wall_axis
 
 func apply_wall_slide_gravity(delta):
@@ -115,7 +115,7 @@ func apply_wall_slide_gravity(delta):
 
 func create_dust_effect():
 	Sound.play(Sound.step, randf_range(0.8, 1.1), -5.0)
-	Utils.instantiate_scene_on_world(DustEffectScene, global_position)
+	Utils.instantiate_scene_on_level(DustEffectScene, global_position)
 
 func is_moving(input_axis):
 	return input_axis != 0
@@ -153,7 +153,7 @@ func jump(force, create_effect = true):
 	Sound.play(Sound.jump, randf_range(0.8, 1.1), 5.0)
 	velocity.y = -force
 	if create_effect:
-		Utils.instantiate_scene_on_world(JumpEffectScene, global_position)
+		Utils.instantiate_scene_on_level(JumpEffectScene, global_position)
 
 func update_animations(input_axis):
 	sprite_2d.scale.x = sign(get_local_mouse_position().x)

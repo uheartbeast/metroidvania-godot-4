@@ -36,7 +36,6 @@ func change_levels(door : Door):
 	for found_door in doors:
 		if found_door == door: continue
 		if found_door.connection != door.connection: continue
-#		door.active = false
 		var yoffset = player.global_position.y - door.global_position.y
 		player.global_position = found_door.global_position + Vector2(0, yoffset)
 
