@@ -13,6 +13,7 @@ config_version=5
 config/name="Metroidvania"
 run/main_scene="res://menus/start_menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
