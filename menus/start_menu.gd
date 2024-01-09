@@ -5,6 +5,7 @@ func _ready():
 
 func _on_start_button_pressed():
 	Sound.play(Sound.click, 1.0, -10.0)
+	WorldStash.data = {}
 	get_tree().change_scene_to_file("res://world.tscn")
 
 func _on_load_button_pressed():

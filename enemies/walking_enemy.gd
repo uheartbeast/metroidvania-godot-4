@@ -12,6 +12,12 @@ var direction = 1.0
 @onready var floor_cast = $FloorCast
 @onready var stats = $Stats
 @onready var death_effect_location = $DeathEffectLocation
+@onready var starting_position = global_position
+
+func _ready():
+	var id = WorldStash.get_id(self, starting_position)
+	var died = WorldStash.retrieve(id, "died")
+	if died: queue_free()
 
 func _physics_process(delta):
 	if not is_on_floor():
@@ -39,4 +45,7 @@ func _on_hurtbox_hurt(hitbox, damage):
 
 func _on_stats_no_health():
 	Utils.instantiate_scene_on_level(EnemyDeathEffectScene, death_effect_location.global_position)
+	var id = WorldStash.get_id(self, starting_position)
+	WorldStash.stash(id, "died", true)
 	queue_free()
+	

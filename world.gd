@@ -12,6 +12,7 @@ func _ready():
 	Events.player_died.connect(game_over)
 	Music.play(Music.main_theme)
 	if SaveManager.is_loading:
+		print(WorldStash.data)
 		SaveManager.load_game()
 		SaveManager.is_loading = false
 func _exit_tree():

@@ -37,7 +37,7 @@ func _enter_tree():
 
 func _physics_process(delta):
 	state.call(delta)
-	
+		
 	if Input.is_action_pressed("fire") and fire_rate_timer.time_left == 0:
 		fire_rate_timer.start()
 		player_blaster.fire_bullet()

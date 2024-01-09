@@ -2,9 +2,9 @@ extends Node
 
 var data = {}
 
-func get_id(node):
+func get_id(node, position):
 	var level = MainInstances.level
-	return level.name + "_" + node.name + "_" + str(node.global_position)
+	return level.name + "_" + node.name + "_" + str(position)
 
 func stash(id, key, value):
 	if not data.has(id): data[id] = {}
