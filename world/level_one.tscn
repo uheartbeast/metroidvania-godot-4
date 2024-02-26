@@ -70,6 +70,9 @@ position = Vector2(16, -32)
 [node name="FlyingEnemy" parent="." instance=ExtResource("8_vo4vg")]
 position = Vector2(224, 8)
 
+[node name="FlyingEnemy2" parent="." instance=ExtResource("8_vo4vg")]
+position = Vector2(184, 112)
+
 [node name="Brick" parent="." instance=ExtResource("9_8dpsm")]
 position = Vector2(8, -32)
 
@@ -98,6 +101,7 @@ offset_left = -64.0
 offset_top = -112.0
 offset_right = 576.0
 offset_bottom = 160.0
+metadata/_edit_lock_ = true
 
 [node name="SaveStation" parent="." instance=ExtResource("15_sa8i4")]
 position = Vector2(488, 32)
